@@ -4,7 +4,7 @@
 
 It adds the option to open acknowledgements and visit the website by clicking a button.
 
-`screenshot on the way`
+![DCOAboutWindow in action](https://raw.github.com/DangerCove/DCOAboutWindow/master/screenshots/DCOAboutWindow.jpg)
 
 # Setup
 
@@ -30,11 +30,18 @@ Import `DCOAboutWindowController`:
 
     #import <DCOAboutWindow/DCOAboutWindowController.h>
 
-Instantiate and open `DCOAboutWindow`:
+Instantiate `DCOAboutWindow`:
 
     // Note: make sure self.aboutWindowController is retained
     self.aboutWindowController = [DCOAboutWindow alloc] init];
-    [self.aboutWindowController showWindow:nil];
+
+Create an IBAction to display the window:
+
+    - (IBAction)showAboutWindow:(id)sender {
+      [self.aboutWindowController showWindow:nil];
+    }
+
+Hook it up to the 'About [app name]' menu item or a button.
 
 You can change values by setting properties on `DCOAboutWindowController`:
 
@@ -73,6 +80,8 @@ You can change values by setting properties on `DCOAboutWindowController`:
      *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
      */
     @property (nonatomic, copy) NSString *acknowledgementsPath;
+
+
 
 # Contributions and things to add
 
