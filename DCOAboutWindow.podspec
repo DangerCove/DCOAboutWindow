@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.source_files    = 'DCOAboutWindow/*.{h,m}'
   s.resources       = "DCOAboutWindow/*.{xib}"
   s.framework       = 'QuartzCore'
+  s.dependency        'DCOTransparentScroller'
   s.requires_arc    = true
 end
