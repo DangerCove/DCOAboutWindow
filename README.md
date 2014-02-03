@@ -10,13 +10,19 @@ It adds the option to open acknowledgements and visit the website by clicking a 
 
 ## Via [cocoapods](http://cocoapods.org)
 
-I'll add the pod to the cocoapods library. As soon as it's accepted you can use:
+I'll add the pod to the cocoapods library. As soon as it's added you can use:
 
     pod 'DCOAboutWindow'
 
 While it hasn't been added add the following line to your Podfile:
 
     pod 'DCOAboutWindow', :git => 'git@github.com:DangerCove/DCOAboutWindow.git'
+
+This pod depends on `DCOTransparentScroller`, so add that too:
+
+    pod 'DCOTransparentScroller', :git => 'git@github.com:DangerCove/DCOTransparentScroller.git'
+
+    (or just pod 'DCOTransparentScroller' as soon as it added to the cocoapods library)
 
 Then run `pod install` and you're set.
 
@@ -25,6 +31,8 @@ Then run `pod install` and you're set.
 Clone this repo and add files from `DCOAboutWindow` to your project.
 
 # Usage
+
+I've made [sample project](https://github.com/DangerCove/DCOAboutWindowExample) that accompanies this tiny guide.
 
 Import `DCOAboutWindowController`:
 
