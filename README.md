@@ -20,6 +20,8 @@ Then run `pod install` and you're set.
 
 Clone this repo and add files from `DCOAboutWindow` to your project.
 
+The project relies on [DCOTransparentScroller](https://github.com/DangerCove/DCOTransparentScroller), so include that too.
+
 # Usage
 
 I've made [sample project](https://github.com/DangerCove/DCOAboutWindowExample) that accompanies this tiny guide.
