@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.source          = { :git => "https://github.com/DangerCove/DCOAboutWindow.git", :tag => "0.0.1" }
   s.source_files    = 'DCOAboutWindow/*.{h,m}'
   s.resources       = "DCOAboutWindow/*.{xib}"
-  spec.framework    = 'QuartzCore'
+  s.framework       = 'QuartzCore'
   s.requires_arc    = true
 end
