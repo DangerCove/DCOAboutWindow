@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage        = "http://github.com/DangerCove/DCOAboutWindow"
   s.license         = 'BSD'
   s.author          = { "Boy van Amstel" => "boy@dangercove.com" }
-  s.platform        = :osx
+  s.platform        = :osx, "10.8"
   s.source          = { :git => "https://github.com/DangerCove/DCOAboutWindow.git", :tag => "0.0.1" }
   s.source_files    = 'DCOAboutWindow/*.{h,m}'
   s.resources       = "DCOAboutWindow/*.{xib}"
