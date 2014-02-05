@@ -33,7 +33,7 @@ Import `DCOAboutWindowController`:
 Instantiate `DCOAboutWindow`:
 
     // Note: make sure self.aboutWindowController is retained
-    self.aboutWindowController = [DCOAboutWindow alloc] init];
+    self.aboutWindowController = [[DCOAboutWindowController alloc] init];
 
 Create an IBAction to display the window:
 
