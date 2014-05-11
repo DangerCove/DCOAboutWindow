@@ -78,13 +78,22 @@
     if (self.appCreditsFileName && self.appCreditsFileType) {
         creditsPath = [[NSBundle mainBundle] pathForResource:self.appCreditsFileName ofType:self.appCreditsFileType];
     } else {
-        NSLog(@"DCOAboutWindowController: Error, please specify a file name and file path");
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]]) {
+            // Display the default rtf file
+            NSAttributedString *creditsString = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
+            [self.creditsTextView setEditable:YES];
+            [self.creditsTextView insertText:creditsString];
+            [self.creditsTextView setEditable:NO];
+            [self.creditsTextView setFont:[NSFont fontWithName:@"Lucida Grande" size:12]];
+
+        } else {
+            NSLog(@"DCOAboutWindowController: Error, please specify a file name and file path");
+        }
     }
     
     // Handle the case that the given file is markdown
     if ([self.appCreditsFileType isEqualToString:@"md"]) {
         NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.appCreditsFileName ofType:self.appCreditsFileType]  encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"MD: %@", markdown);
         
         NSAttributedStringMarkdownParser *parser = [[NSAttributedStringMarkdownParser alloc] init];
         NSAttributedString* string = [parser attributedStringFromMarkdownString:markdown];

@@ -32,11 +32,15 @@
 @property (copy) NSString *appCopyright;
 
 /**
- *  The credits.
- *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+ *  The credits file name
+ *  Default: File in mainBuindle with name "credits"
  */
 @property (copy) NSString *appCreditsFileName;
 
+/*
+ *  The credits file type.
+ *  Default: File in mainBunde with extension "rtf"
+ */
 @property (copy) NSString *appCreditsFileType;
 
 /**
