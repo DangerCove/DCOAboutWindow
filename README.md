@@ -35,6 +35,7 @@ Instantiate `DCOAboutWindow`:
     // Note: make sure self.aboutWindowController is retained
     self.aboutWindowController = [[DCOAboutWindowController alloc] init];
 
+
 Create an IBAction to display the window:
 
     - (IBAction)showAboutWindow:(id)sender {
@@ -64,10 +65,16 @@ You can change values by setting properties on `DCOAboutWindowController`:
     @property (copy) NSString *appCopyright;
 
     /** 
-     *  The credits.
+     *  The credits file name.
      *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
      */
-    @property (copy) NSAttributedString *appCredits;
+    @property (copy) NSAttributedString *appCreditsFileName;
+    
+    /**
+     *  The credits file type
+     *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+     */
+     @property (copy) NSString *ppCreditsFileType;
 
     /** 
      *  The URL pointing to the app's website. 
