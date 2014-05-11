@@ -13,38 +13,40 @@
  */
 @interface DCOAboutWindowController : NSWindowController
 
-/** 
- *  The application name. 
+/**
+ *  The application name.
  *  Default: CFBundleName
  */
 @property (copy) NSString *appName;
 
-/** 
- *  The application version. 
+/**
+ *  The application version.
  *  Default: "Version %@ (Build %@)", CFBundleVersion, CFBundleShortVersionString
  */
 @property (copy) NSString *appVersion;
 
-/** 
+/**
  *  The copyright line.
  *  Default: NSHumanReadableCopyright
  */
 @property (copy) NSString *appCopyright;
 
-/** 
+/**
  *  The credits.
  *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
  */
-@property (copy) NSAttributedString *appCredits;
+@property (copy) NSString *appCreditsFileName;
 
-/** 
- *  The URL pointing to the app's website. 
+@property (copy) NSString *appCreditsFileType;
+
+/**
+ *  The URL pointing to the app's website.
  *  Default: none
  */
 @property (strong) NSURL *appWebsiteURL;
 
-/** 
- *  The path to the file that contains the acknowledgements. 
+/**
+ *  The path to the file that contains the acknowledgements.
  *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
  */
 @property (nonatomic, copy) NSString *acknowledgementsPath;
