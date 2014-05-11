@@ -66,13 +66,13 @@ You can change values by setting properties on `DCOAboutWindowController`:
 
     /** 
      *  The credits file name.
-     *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+     *  Default: File in mainBuindle with name "credits"
      */
     @property (copy) NSAttributedString *appCreditsFileName;
     
     /**
      *  The credits file type
-     *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+     *  Default: File in mainBunde with extension "rtf"
      */
      @property (copy) NSString *ppCreditsFileType;
 
