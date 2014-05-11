@@ -34,6 +34,9 @@ Instantiate `DCOAboutWindow`:
 
     // Note: make sure self.aboutWindowController is retained
     self.aboutWindowController = [[DCOAboutWindowController alloc] init];
+    // Set the Credits file information
+    [self.aboutWindowController setAppCreditsFileName:@"credits"];
+    [self.aboutWindowController setAppCreditsFileType:@"md"];
 
 
 Create an IBAction to display the window:
