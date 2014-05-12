@@ -7,6 +7,7 @@
 //
 
 #import "DCOAboutWindowController.h"
+#import "NSAttributedStringMarkdownParser.h"
 
 @interface DCOAboutWindowController()
 
@@ -50,7 +51,7 @@
     if(!self.appName) {
         self.appName = [bundleDict objectForKey:@"CFBundleName"];
     }
-
+    
     // Set app version
     if(!self.appVersion) {
         NSString *version = [bundleDict objectForKey:@"CFBundleVersion"];
@@ -62,7 +63,7 @@
     if(!self.appCopyright) {
         self.appCopyright = [bundleDict objectForKey:@"NSHumanReadableCopyright"];
     }
-
+    
     // Set "visit website" caption
     self.visitWebsiteButton.title = [NSString stringWithFormat:self.visitWebsiteButton.title, self.appName];
     
@@ -70,16 +71,59 @@
     if(!self.acknowledgementsPath) {
         self.acknowledgementsPath = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
     }
+    
+    
+    // Set App Credits
+    NSString *creditsPath;
+    if (self.appCreditsFileName && self.appCreditsFileType) {
+        creditsPath = [[NSBundle mainBundle] pathForResource:self.appCreditsFileName ofType:self.appCreditsFileType];
+    } else {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]]) {
+            // Display the default rtf file
+            NSAttributedString *creditsString = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
+            [self.creditsTextView setEditable:YES];
+            [self.creditsTextView insertText:creditsString];
+            [self.creditsTextView setEditable:NO];
+            [self.creditsTextView setFont:[NSFont fontWithName:@"Lucida Grande" size:12]];
 
-    // Set credits
-    if(!self.appCredits) {
-        NSString *creditsPath = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
-        self.appCredits = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
+        } else {
+            NSLog(@"DCOAboutWindowController: Error, please specify a file name and file path");
+        }
     }
-
+    
+    // Handle the case that the given file is markdown
+    if ([self.appCreditsFileType isEqualToString:@"md"]) {
+        NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.appCreditsFileName ofType:self.appCreditsFileType]  encoding:NSUTF8StringEncoding error:nil];
+        
+        NSAttributedStringMarkdownParser *parser = [[NSAttributedStringMarkdownParser alloc] init];
+        NSAttributedString* string = [parser attributedStringFromMarkdownString:markdown];
+        
+        [self.creditsTextView setEditable:YES];
+        [self.creditsTextView insertText:string];
+        [self.creditsTextView setEditable:NO];
+    }
+    
+    // Handle the case that the given file is txt, rtf, doc or docx
+    if ([self.appCreditsFileType isEqualToString:@"txt"] ||
+        [self.appCreditsFileType isEqualToString:@"rtf"] ||
+        [self.appCreditsFileType isEqualToString:@"doc"] ||
+        [self.appCreditsFileType isEqualToString:@"docx"]) {
+        NSAttributedString *creditsString = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
+        [self.creditsTextView setEditable:YES];
+        [self.creditsTextView insertText:creditsString];
+        [self.creditsTextView setEditable:NO];
+        [self.creditsTextView setFont:[NSFont fontWithName:@"Lucida Grande" size:12]];
+    }
+    
+    
+    
+    
+    
+    
+    
     // Disable editing
     [self.creditsTextView setEditable:NO]; // Somehow IB checkboxes are not working
-//    [self.creditsTextView setSelectable:NO]; // Somehow IB checkboxes are not working
+    //[self.creditsTextView setSelectable:NO]; // Somehow IB checkboxes are not working
     
     // Draw info view
     self.infoView.wantsLayer = YES;
@@ -91,6 +135,29 @@
     bottomBorder.borderWidth = 1;
     bottomBorder.frame = CGRectMake(-1.f, .0f, CGRectGetWidth(self.infoView.frame) + 2.f, CGRectGetHeight(self.infoView.frame) + 1.f);
     [self.infoView.layer addSublayer:bottomBorder];
+    
+    
+    //
+    // Added by developer of the Generatr for Mac application
+    //
+    
+    //NSString *markdown = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"md"]  encoding:NSUTF8StringEncoding error:nil];
+    
+    //NSString *html = [MMMarkdown HTMLStringWithMarkdown:markdown error:nil];
+    
+    //NSError *error;
+    //NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
+    //NSAttributedString *preview = [[NSAttributedString alloc] initWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:options documentAttributes:nil error:&error];
+    
+    //[self.creditsTextView setEditable:YES];
+    //[self.creditsTextView insertText:preview];
+    //[self.creditsTextView setEditable:NO];
+    
+    //[self.creditsTextView setFont:[NSFont fontWithName:@"Lucida Grande" size:12]];
+    
+    //self.creditsTextView.string = preview;
+    
+    
 }
 
 #pragma mark - Getters/Setters
