@@ -85,7 +85,13 @@ You can change values by setting properties on `DCOAboutWindowController`:
 
 # Contributions and things to add
 
-Be creative.
+Be creative. DCOAboutWindow should be a flexible, easy to use way to make the About Window for your app look pretty. Make sure your changes don't break existing functionality without good reason.
+
+## Spin-offs
+
+Let me know if you made far going modifications by including your project in this section. Add yourself to the list and send me a pull request.
+
+* [Your project on GitHub](http://www.dangercove.com) - A short description.
 
 # License
 
