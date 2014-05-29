@@ -1,10 +1,14 @@
 # Overview
 
-`DCOAboutWindow` is a replacement for the standard About dialog. 
+DCOAboutWindow is a replacement for the standard About dialog. 
 
 It adds the option to open acknowledgements and visit the website by clicking a button.
 
 ![DCOAboutWindow in action](https://raw.github.com/DangerCove/DCOAboutWindow/master/screenshots/DCOAboutWindow.jpg)
+
+## Showing acknowledgments
+
+You can point to and maintain a custom `Acknowledgments.rtf` file, or you can use a script like [Acknowledge](https://github.com/DangerCove/Acknowledge) to generate it for you.
 
 # Setup
 
@@ -92,6 +96,12 @@ Be creative. DCOAboutWindow should be a flexible, easy to use way to make the Ab
 Let me know if you made far going modifications by including your project in this section. Add yourself to the list and send me a pull request.
 
 * [Your project on GitHub](http://www.dangercove.com) - A short description.
+
+## Add-ons
+
+Related apps, tools and scripts that extend DCOAboutWindow's functionality.
+
+* [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from Cocoapods and custom markdown files.
 
 # License
 
