@@ -22,8 +22,8 @@
 /** The button that opens the app's website. */
 @property (weak) IBOutlet NSButton *visitWebsiteButton;
 
-/** The button that opens the acknowledgements. */
-@property (weak) IBOutlet NSButton *acknowledgementsButton;
+/** The button that opens the acknowledgments. */
+@property (weak) IBOutlet NSButton *acknowledgmentsButton;
 
 @end
 
@@ -66,9 +66,9 @@
     // Set "visit website" caption
     self.visitWebsiteButton.title = [NSString stringWithFormat:self.visitWebsiteButton.title, self.appName];
     
-    // Set acknowledgements
-    if(!self.acknowledgementsPath) {
-        self.acknowledgementsPath = [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
+    // Set acknowledgments
+    if(!self.acknowledgmentsPath) {
+        self.acknowledgmentsPath = [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"rtf"];
     }
 
     // Set credits
@@ -95,13 +95,13 @@
 
 #pragma mark - Getters/Setters
 
-- (void)setAcknowledgementsPath:(NSString *)acknowledgementsPath {
-    _acknowledgementsPath = acknowledgementsPath;
+- (void)setAcknowledgmentsPath:(NSString *)acknowledgmentsPath {
+    _acknowledgmentsPath = acknowledgmentsPath;
     
-    if(!acknowledgementsPath) {
+    if(!acknowledgmentsPath) {
         
         // Remove the button (and constraints)
-        [self.acknowledgementsButton removeFromSuperview];
+        [self.acknowledgmentsButton removeFromSuperview];
         
     }
 }
@@ -118,15 +118,15 @@
     
 }
 
-- (IBAction)showAcknowledgements:(id)sender {
+- (IBAction)showAcknowledgments:(id)sender {
     
-    if(self.acknowledgementsPath) {
+    if(self.acknowledgmentsPath) {
         
         // Load in default editor
-        [[NSWorkspace sharedWorkspace] openFile:self.acknowledgementsPath];
+        [[NSWorkspace sharedWorkspace] openFile:self.acknowledgmentsPath];
         
     } else {
-        NSLog(@"Error: couldn't load the acknowledgements file");
+        NSLog(@"Error: couldn't load the acknowledgments file");
     }
 }
 

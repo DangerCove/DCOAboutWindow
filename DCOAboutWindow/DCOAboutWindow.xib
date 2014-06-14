@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DCOAboutWindowController">
             <connections>
-                <outlet property="acknowledgementsButton" destination="rvK-GI-M19" id="aOq-p2-IVi"/>
+                <outlet property="acknowledgmentsButton" destination="rvK-GI-M19" id="aOq-p2-IVi"/>
                 <outlet property="creditsTextView" destination="pHV-oS-ckv" id="jZi-EY-CLl"/>
                 <outlet property="infoView" destination="azJ-mF-gLH" id="fAk-OO-opT"/>
                 <outlet property="visitWebsiteButton" destination="DNh-ZA-cca" id="wD5-ro-jbQ"/>
@@ -144,12 +144,12 @@
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rvK-GI-M19">
                                 <rect key="frame" x="383" y="8" width="163" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Acknowledgements" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wky-VX-jr0">
+                                <buttonCell key="cell" type="push" title="Acknowledgments" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wky-VX-jr0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="showAcknowledgements:" target="-2" id="bgN-HQ-OGs"/>
+                                    <action selector="showAcknowledgments:" target="-2" id="bgN-HQ-OGs"/>
                                 </connections>
                             </button>
                         </subviews>

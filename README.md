@@ -2,7 +2,7 @@
 
 DCOAboutWindow is a replacement for the standard About dialog. 
 
-It adds the option to open acknowledgements and visit the website by clicking a button.
+It adds the option to open acknowledgments and visit the website by clicking a button.
 
 ![DCOAboutWindow in action](https://raw.github.com/DangerCove/DCOAboutWindow/master/screenshots/DCOAboutWindow.jpg)
 
@@ -80,10 +80,10 @@ You can change values by setting properties on `DCOAboutWindowController`:
     @property (strong) NSURL *appWebsiteURL;
 
     /** 
-     *  The path to the file that contains the acknowledgements. 
-     *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"rtf"];
+     *  The path to the file that contains the acknowledgments. 
+     *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"rtf"];
      */
-    @property (nonatomic, copy) NSString *acknowledgementsPath;
+    @property (nonatomic, copy) NSString *acknowledgmentsPath;
 
 
 
