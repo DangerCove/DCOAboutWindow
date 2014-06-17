@@ -10,6 +10,16 @@ It adds the option to open acknowledgments and visit the website by clicking a b
 
 You can point to and maintain a custom `Acknowledgments.rtf` file, or you can use a script like [Acknowledge](https://github.com/DangerCove/Acknowledge) to generate it for you.
 
+# Changelog
+
+## v0.0.2
+
+* Switched to using 'Acknowledgments' instead of 'Acknowledg_e_ments' to be more consistent and prevent incompatibility with [Acknowledge](https://github.com/DangerCove/Acknowledge). **NOTE:** Make sure you change the filename of your acknowledgments and any setters/getters.
+
+## v0.0.1
+
+* Initial release.
+
 # Setup
 
 ## Via [cocoapods](http://cocoapods.org)
