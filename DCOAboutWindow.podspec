@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary         = "Introduces a prettier About Window."
   s.description     = <<-DESC
                        A replacement for the standard About dialog. Adds the option to open
-                       acknowledgements and visit the website by clicking a button.
+                       acknowledgments and visit the website by clicking a button.
                        DESC
   s.homepage        = "http://github.com/DangerCove/DCOAboutWindow"
   s.license         = 'BSD'
