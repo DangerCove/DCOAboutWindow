@@ -119,6 +119,15 @@ Add the following lines to your Localizable.string to change these values, or lo
 
 Be creative. DCOAboutWindow should be a flexible, easy to use way to make the About Window for your app look pretty. Make sure your changes don't break existing functionality without good reason.
 
+To make a pull request:
+
+* Fork the repo;
+* Create a new branch (`git checkout -b your-feature`);
+* Add your code;
+* Commit all your changes to your branch;
+* Push it (`git push origin your-feature`);
+* Submit a pull request via the GitHub web interface.
+
 ## Spin-offs
 
 Let me know if you made far going modifications by including your project in this section. Add yourself to the list and send me a pull request.
