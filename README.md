@@ -102,7 +102,18 @@ You can change values by setting properties on `DCOAboutWindowController`:
      */
     @property (nonatomic, copy) NSString *acknowledgmentsPath;
 
+# Localization
 
+Add the following lines to your Localizable.string to change these values, or localize them.
+
+    /* Version %@ (Build %@), displayed in the about window */
+    "Version %@ (Build %@)" = "v%@ (%@)";
+
+    /* Caption on the 'Visit the %@ Website' button in the about window */
+    "Visit the %@ Website" = "Visit %@'s Website";
+
+    /* Caption of the 'Acknowledgments' button in the about window */
+    "Acknowledgments" = "Acknowledgements";
 
 # Contributions and things to add
 
