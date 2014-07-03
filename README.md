@@ -12,10 +12,12 @@ You can point to and maintain a custom `Acknowledgments.rtf` file, or you can us
 
 # Changelog
 
-## v0.0.3
+## v0.1.0
 
 * Improved localization support
-* Adjusted window to allow handle resizing
+* Improved auto-layout constraints to handle resizing better
+
+You can toggle (off by default) resizing by setting the `NSWindow`'s `styleMask`. Check out the [example project](https://github.com/DangerCove/DCOAboutWindowExample) to see how this works.
 
 ## v0.0.2
 
