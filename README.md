@@ -12,6 +12,11 @@ You can point to and maintain a custom `Acknowledgments.rtf` file, or you can us
 
 # Changelog
 
+## v0.0.3
+
+* Improved localization support
+* Adjusted window to allow handle resizing
+
 ## v0.0.2
 
 * Switched to using 'Acknowledgments' instead of 'Acknowledg_e_ments' to be more consistent and prevent incompatibility with [Acknowledge](https://github.com/DangerCove/Acknowledge). **NOTE:** Make sure you change the filename of your acknowledgments and any setters/getters.

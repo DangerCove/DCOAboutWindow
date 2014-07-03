@@ -64,7 +64,7 @@
     }
 
     // Set "visit website" caption
-    self.visitWebsiteButton.title = [NSString stringWithFormat:self.visitWebsiteButton.title, self.appName];
+    self.visitWebsiteButton.title = [NSString stringWithFormat:NSLocalizedString(@"Visit %@ website", @"Visit %@ website"), self.appName];
     
     // Set acknowledgments
     if(!self.acknowledgmentsPath) {
@@ -90,6 +90,7 @@
     bottomBorder.borderColor = [NSColor grayColor].CGColor;
     bottomBorder.borderWidth = 1;
     bottomBorder.frame = CGRectMake(-1.f, .0f, CGRectGetWidth(self.infoView.frame) + 2.f, CGRectGetHeight(self.infoView.frame) + 1.f);
+    bottomBorder.autoresizingMask = NSViewHeightSizable | NSViewWidthSizable;
     [self.infoView.layer addSublayer:bottomBorder];
 }
 
