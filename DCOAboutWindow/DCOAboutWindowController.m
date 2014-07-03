@@ -55,7 +55,7 @@
     if(!self.appVersion) {
         NSString *version = [bundleDict objectForKey:@"CFBundleVersion"];
         NSString *shortVersion = [bundleDict objectForKey:@"CFBundleShortVersionString"];
-        self.appVersion = [NSString stringWithFormat:NSLocalizedString(@"Version %@ (Build %@)", @"Version %@ (Build %@)"), shortVersion, version];
+        self.appVersion = [NSString stringWithFormat:NSLocalizedString(@"Version %@ (Build %@)", @"Version %@ (Build %@), displayed in the about window"), shortVersion, version];
     }
     
     // Set copyright
@@ -64,8 +64,9 @@
     }
 
     // Set "visit website" caption
-    self.visitWebsiteButton.title = [NSString stringWithFormat:NSLocalizedString(@"Visit %@ website", @"Visit %@ website"), self.appName];
-    self.acknowledgmentsButton.title = NSLocalizedString(@"Acknowledgments", @"Acknowledgments");
+    self.visitWebsiteButton.title = [NSString stringWithFormat:NSLocalizedString(@"Visit the %@ Website", @"Caption on the 'Visit the %@ Website' button in the about window"), self.appName];
+    // Set the "acknowledgements" caption
+    self.acknowledgmentsButton.title = NSLocalizedString(@"Acknowledgments", @"Caption of the 'Acknowledgments' button in the about window");
     
     // Set acknowledgments
     if(!self.acknowledgmentsPath) {
