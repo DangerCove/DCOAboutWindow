@@ -10,23 +10,6 @@ It adds the option to open acknowledgments and visit the website by clicking a b
 
 You can point to and maintain a custom `Acknowledgments.rtf` file, or you can use a script like [Acknowledge](https://github.com/DangerCove/Acknowledge) to generate it for you.
 
-# Changelog
-
-## v0.1.0
-
-* Improved localization support
-* Improved auto-layout constraints to handle resizing better
-
-You can toggle (off by default) resizing by setting the `NSWindow`'s `styleMask`. Check out the [example project](https://github.com/DangerCove/DCOAboutWindowExample) to see how this works.
-
-## v0.0.2
-
-* Switched to using 'Acknowledgments' instead of 'Acknowledg_e_ments' to be more consistent and prevent incompatibility with [Acknowledge](https://github.com/DangerCove/Acknowledge). **NOTE:** Make sure you change the filename of your acknowledgments and any setters/getters.
-
-## v0.0.1
-
-* Initial release.
-
 # Setup
 
 ## Via [cocoapods](http://cocoapods.org)
@@ -45,7 +28,7 @@ The project relies on [DCOTransparentScroller](https://github.com/DangerCove/DCO
 
 # Usage
 
-I've made [sample project](https://github.com/DangerCove/DCOAboutWindowExample) that accompanies this tiny guide.
+I've made a [sample project](https://github.com/DangerCove/DCOAboutWindowExample) that accompanies this tiny guide.
 
 Import `DCOAboutWindowController`:
 
@@ -119,7 +102,7 @@ Add the following lines to your Localizable.string to change these values, or lo
 
 Be creative. DCOAboutWindow should be a flexible, easy to use way to make the About Window for your app look pretty. Make sure your changes don't break existing functionality without good reason.
 
-To make a pull request:
+To create a pull request:
 
 * Fork the repo;
 * Create a new branch (`git checkout -b your-feature`);
@@ -139,6 +122,23 @@ Let me know if you made far going modifications by including your project in thi
 Related apps, tools and scripts that extend DCOAboutWindow's functionality.
 
 * [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from Cocoapods and custom markdown files.
+
+# Changelog
+
+## v0.1.0
+
+* Improved localization support
+* Improved auto-layout constraints to handle resizing better
+
+You can toggle (off by default) resizing by setting the `NSWindow`'s `styleMask`. Check out the [example project](https://github.com/DangerCove/DCOAboutWindowExample) to see how this works.
+
+## v0.0.2
+
+* Switched to using 'Acknowledgments' instead of 'Acknowledg_e_ments' to be more consistent and prevent incompatibility with [Acknowledge](https://github.com/DangerCove/Acknowledge). **NOTE:** Make sure you change the filename of your acknowledgments and any setters/getters.
+
+## v0.0.1
+
+* Initial release.
 
 # License
 
