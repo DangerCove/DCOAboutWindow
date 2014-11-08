@@ -106,7 +106,7 @@ Add the following lines to your Localizable.string to change these values, or lo
 
     /* Caption of the 'Acknowledgments' button in the about window when acknowledgments are shown
        when acknowledgmentsUseEditor is NO. */
-    "Credits" = "Acknowledgements";
+    "Credits" = "Credits";
 
 # Contributions and things to add
 
