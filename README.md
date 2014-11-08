@@ -1,6 +1,6 @@
 # Overview
 
-DCOAboutWindow is a replacement for the standard About dialog. 
+DCOAboutWindow is a replacement for the standard About dialog.
 
 It adds the option to open acknowledgments and visit the website by clicking a button.
 
@@ -49,41 +49,47 @@ Hook it up to the 'About [app name]' menu item or a button.
 
 You can change values by setting properties on `DCOAboutWindowController`:
 
-    /** 
-     *  The application name. 
+    /**
+     *  The application name.
      *  Default: CFBundleName
      */
     @property (copy) NSString *appName;
 
-    /** 
-     *  The application version. 
+    /**
+     *  The application version.
      *  Default: "Version %@ (Build %@)", CFBundleVersion, CFBundleShortVersionString
      */
     @property (copy) NSString *appVersion;
 
-    /** 
+    /**
      *  The copyright line.
      *  Default: NSHumanReadableCopyright
      */
     @property (copy) NSString *appCopyright;
 
-    /** 
+    /**
      *  The credits.
      *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
      */
     @property (copy) NSAttributedString *appCredits;
 
-    /** 
-     *  The URL pointing to the app's website. 
+    /**
+     *  The URL pointing to the app's website.
      *  Default: none
      */
     @property (strong) NSURL *appWebsiteURL;
 
-    /** 
-     *  The path to the file that contains the acknowledgments. 
+    /**
+     *  The path to the file that contains the acknowledgments.
      *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"rtf"];
      */
     @property (nonatomic, copy) NSString *acknowledgmentsPath;
+
+    /**
+     *  If set to YES acknowledgments launch in default editor; otherwise shown in the creditsTextView.
+     *  Default: YES;
+     */
+    @property (nonatomic, assign) BOOL acknowledgmentsUseEditor;
 
 # Localization
 
@@ -97,6 +103,10 @@ Add the following lines to your Localizable.string to change these values, or lo
 
     /* Caption of the 'Acknowledgments' button in the about window */
     "Acknowledgments" = "Acknowledgements";
+
+    /* Caption of the 'Acknowledgments' button in the about window when acknowledgments are shown
+       when acknowledgmentsUseEditor is NO. */
+    "Credits" = "Acknowledgements";
 
 # Contributions and things to add
 
