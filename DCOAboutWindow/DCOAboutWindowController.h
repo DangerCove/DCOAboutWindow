@@ -33,7 +33,7 @@
 
 /** 
  *  The credits.
- *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+ *  Default: contents of file at [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
  */
 @property (copy) NSAttributedString *appCredits;
 
@@ -50,6 +50,12 @@
 @property (nonatomic, copy) NSString *acknowledgmentsPath;
 
 /**
+ *  If set to YES acknowledgments launch in default editor; otherwise shown in the creditsTextView.
+ *  Default: YES;
+ */
+@property (nonatomic, assign) BOOL acknowledgmentsUseEditor;
+
+/**
  *  Visit the website.
  *
  *  @param sender The object making the call.
@@ -62,5 +68,6 @@
  *  @param sender The object making the call.
  */
 - (IBAction)showAcknowledgments:(id)sender;
+
 
 @end
