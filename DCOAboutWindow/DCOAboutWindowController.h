@@ -13,47 +13,47 @@
  */
 @interface DCOAboutWindowController : NSWindowController
 
-/** 
- *  The application name. 
+/**
+ *  The application name.
  *  Default: CFBundleName
  */
 @property (copy) NSString *appName;
 
-/** 
- *  The application version. 
+/**
+ *  The application version.
  *  Default: "Version %@ (Build %@)", CFBundleVersion, CFBundleShortVersionString
  */
 @property (copy) NSString *appVersion;
 
-/** 
+/**
  *  The copyright line.
  *  Default: NSHumanReadableCopyright
  */
 @property (copy) NSString *appCopyright;
 
-/** 
+/**
  *  The credits.
  *  Default: contents of file at [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
  */
 @property (copy) NSAttributedString *appCredits;
 
-/** 
- *  The URL pointing to the app's website. 
+/**
+ *  The URL pointing to the app's website.
  *  Default: none
  */
 @property (strong) NSURL *appWebsiteURL;
 
-/** 
- *  The path to the file that contains the acknowledgments. 
+/**
+ *  The path to the file that contains the acknowledgments.
  *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"rtf"];
  */
 @property (nonatomic, copy) NSString *acknowledgmentsPath;
 
 /**
- *  If set to YES acknowledgments launch in default editor; otherwise shown in the creditsTextView.
- *  Default: YES;
+ *  If set to YES acknowledgments are shown in a text view, inside the window. Otherwise an external editor is launched.
+ *  Default: NO;
  */
-@property (nonatomic, assign) BOOL acknowledgmentsUseEditor;
+@property (assign) BOOL useTextViewForAcknowledgments;
 
 /**
  *  Visit the website.
@@ -68,6 +68,5 @@
  *  @param sender The object making the call.
  */
 - (IBAction)showAcknowledgments:(id)sender;
-
 
 @end

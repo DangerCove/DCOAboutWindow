@@ -86,10 +86,10 @@ You can change values by setting properties on `DCOAboutWindowController`:
     @property (nonatomic, copy) NSString *acknowledgmentsPath;
 
     /**
-     *  If set to YES acknowledgments launch in default editor; otherwise shown in the creditsTextView.
-     *  Default: YES;
+     *  If set to YES acknowledgments are shown in a text view, inside the window. Otherwise an external editor is launched.
+     *  Default: NO;
      */
-    @property (nonatomic, assign) BOOL acknowledgmentsUseEditor;
+    @property (assign) BOOL useTextViewForAcknowledgments;
 
 # Localization
 
@@ -102,10 +102,9 @@ Add the following lines to your Localizable.string to change these values, or lo
     "Visit the %@ Website" = "Visit %@'s Website";
 
     /* Caption of the 'Acknowledgments' button in the about window */
-    "Acknowledgments" = "Acknowledgements";
+    "Acknowledgments" = "Acknowledgments";
 
-    /* Caption of the 'Acknowledgments' button in the about window when acknowledgments are shown
-       when acknowledgmentsUseEditor is NO. */
+    /* Caption of the 'Credits' button in the about window when acknowledgments are shown when useTextViewForAcknowledgments is YES. */
     "Credits" = "Credits";
 
 # Contributions and things to add
@@ -134,6 +133,14 @@ Related apps, tools and scripts that extend DCOAboutWindow's functionality.
 * [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from Cocoapods and custom markdown files.
 
 # Changelog
+
+## v0.2.0
+
+* Optionally display acknowledgments inside the window, instead of through an external editor.
+
+Set `useTextViewForAcknowledgments` to `YES` to enable this feature.
+
+* Improve Auto Layout constrains. The image view now remains the same width, while the text fields can become wider.
 
 ## v0.1.0
 
