@@ -130,7 +130,7 @@ Let me know if you made far going modifications by including your project in thi
 
 Related apps, tools and scripts that extend DCOAboutWindow's functionality.
 
-* [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from Cocoapods and custom markdown files.
+* [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from CocoaPods and custom markdown files.
 
 # Changelog
 
