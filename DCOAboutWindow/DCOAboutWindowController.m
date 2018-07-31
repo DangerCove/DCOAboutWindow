@@ -188,7 +188,9 @@
 
     // Enable layer backing and change the background color
     theView.wantsLayer = YES;
-    theView.layer.backgroundColor = [NSColor whiteColor].CGColor;
+    
+    NSColor * backgroundColor = [NSColor windowBackgroundColor];
+    theView.layer.backgroundColor = backgroundColor.CGColor;
     
     // Add bottom border
     CALayer *bottomBorder = [CALayer layer];
