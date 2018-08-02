@@ -92,7 +92,13 @@
     // Set credits
     if(!self.appCredits) {
         NSString *creditsPath = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
-        self.appCredits = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
+        NSMutableAttributedString * tempString = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil].mutableCopy;
+
+        [tempString addAttribute: NSForegroundColorAttributeName
+                           value: [NSColor textColor]
+                           range: NSMakeRange(0, tempString.length)];
+
+        self.appCredits = tempString;
     }
     
     // Disable editing
@@ -113,9 +119,14 @@
     _acknowledgmentsPath = acknowledgmentsPath;
     
     if(acknowledgmentsPath) {
-        
         // Set acknowledgments
-        self.acknowledgmentsString = [[NSAttributedString alloc] initWithPath:acknowledgmentsPath documentAttributes:nil];
+        NSMutableAttributedString * tempString = [[NSAttributedString alloc] initWithPath:acknowledgmentsPath documentAttributes:nil].mutableCopy;
+
+        [tempString addAttribute: NSForegroundColorAttributeName
+                           value: [NSColor textColor]
+                           range: NSMakeRange(0, tempString.length)];
+
+        self.acknowledgmentsString = tempString;
         
     } else {
     

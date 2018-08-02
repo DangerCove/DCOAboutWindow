@@ -17,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char DCOAboutWindowVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <DCOAboutWindow/PublicHeader.h>
 
 #import "DCOAboutWindowController.h"
+#import "DCOTransparentScroller.h"
+#import "DCOTransparentScrollView.h"
