@@ -7,6 +7,7 @@
 //
 
 #import "DCOAboutWindowController.h"
+#import "DCOBackgroundView.h"
 
 @interface DCOAboutWindowController()
 
@@ -17,10 +18,10 @@
 @property (assign) IBOutlet NSView *placeHolderView;
 
 /** The info view. */
-@property (assign) IBOutlet NSView *infoView;
+@property (assign) IBOutlet DCOBackgroundView *infoView;
 
 /** The acknowledgments view. */
-@property (assign) IBOutlet NSView *acknowledgmentsView;
+@property (assign) IBOutlet DCOBackgroundView *acknowledgmentsView;
 
 /** The credits text view. */
 @property (assign) IBOutlet NSTextView *creditsTextView;
@@ -95,6 +96,14 @@
         self.appCredits = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
     }
     
+    // Pre-process credits
+    if (self.appCredits) {
+        id delegate = self.delegate;
+        if (delegate && [delegate respondsToSelector:@selector(preproccessAppCredits:)]) {
+            self.appCredits = [delegate preproccessAppCredits:self.appCredits];
+        }
+    }
+    
     // Disable editing
     [self.creditsTextView setEditable:NO]; // Somehow IB checkboxes are not working
     [self.acknowledgmentsTextView setEditable:NO]; // Somehow IB checkboxes are not working
@@ -115,10 +124,15 @@
     if(acknowledgmentsPath) {
         
         // Set acknowledgments
-        self.acknowledgmentsString = [[NSAttributedString alloc] initWithPath:acknowledgmentsPath documentAttributes:nil];
+        self.acknowledgmentsString = [[NSAttributedString alloc] initWithPath:acknowledgmentsPath
+                                                           documentAttributes:nil];
         
+        id delegate = self.delegate;
+        if (delegate && [delegate respondsToSelector:@selector(preproccessAppAcknowledgments:)]) {
+            self.acknowledgmentsString = [delegate preproccessAppAcknowledgments:self.acknowledgmentsString];
+        }
     } else {
-    
+        
         // Remove the button (and constraints)
         [self.acknowledgmentsButton removeFromSuperview];
         
@@ -139,7 +153,7 @@
 - (IBAction)showAcknowledgments:(id)sender {
     
     if(self.useTextViewForAcknowledgments) {
-
+        
         // Toggle between the infoView and the acknowledgmentsView
         if([self.activeView isEqualTo:self.infoView]) {
             
@@ -151,9 +165,9 @@
             [self showView:self.infoView];
             self.acknowledgmentsButton.title = NSLocalizedString(@"Acknowledgments", nil);
         }
-
+        
     } else {
-
+        
         if(self.acknowledgmentsPath) {
             
             // Load in default editor
@@ -167,7 +181,7 @@
 
 #pragma mark - Private Methods
 
-- (void)showView:(NSView*)theView {
+- (void)showView:(DCOBackgroundView *)theView {
     
     // Exit early if the view is the same
     if([theView isEqualTo:self.activeView]) {
@@ -185,18 +199,10 @@
     
     // Add to placeholder
     [self.placeHolderView addSubview:theView];
-
-    // Enable layer backing and change the background color
-    theView.wantsLayer = YES;
-    theView.layer.backgroundColor = [NSColor whiteColor].CGColor;
     
-    // Add bottom border
-    CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.borderColor = [NSColor grayColor].CGColor;
-    bottomBorder.borderWidth = 1;
-    bottomBorder.frame = CGRectMake(-1.f, .0f, CGRectGetWidth(theView.frame) + 2.f, CGRectGetHeight(theView.frame) + 1.f);
-    bottomBorder.autoresizingMask = NSViewHeightSizable | NSViewWidthSizable;
-    [theView.layer addSublayer:bottomBorder];
+    // Set colors
+    theView.backgroundColor = [NSColor textBackgroundColor];
+    theView.trimColor = [NSColor windowFrameColor];
     
     // Set active view
     self.activeView = theView;
