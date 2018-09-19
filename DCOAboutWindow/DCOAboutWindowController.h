@@ -24,7 +24,7 @@
  *	Given the credits loaded from the bundle, expects a modified version
  *  to be used in return.
  */
-- (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)preproccessAppCredits;
+- (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)appCredits;
 
 @optional
 /**

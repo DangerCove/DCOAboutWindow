@@ -104,8 +104,8 @@ You can pre-process the `NSAttributedString` containing the app credits using a 
 
     #pragma mark - DCOStringPreprocessingProtocol
     
-    - (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)preproccessAppCredits {
-        NSMutableAttributedString *mutableCredits = [preproccessAppCredits mutableCopy];
+    - (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)appCredits {
+        NSMutableAttributedString *mutableCredits = [appCredits mutableCopy];
         
         NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
         [mutableCredits setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
@@ -115,12 +115,12 @@ You can pre-process the `NSAttributedString` containing the app credits using a 
 
     // Optionally pre-process the acknowledgments as well
     - (NSAttributedString *)preproccessAppAcknowledgments:(NSAttributedString *)appAcknowledgments {
-        NSMutableAttributedString *mutableCredits = [appAcknowledgments mutableCopy];
+        NSMutableAttributedString *mutableAcknowledgments = [appAcknowledgments mutableCopy];
         
         NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
-        [mutableCredits setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+        [mutableAcknowledgments setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
         
-        return [mutableCredits copy];
+        return [mutableAcknowledgments copy];
     }
 
 Thanks to [@balthisar](https://github.com/balthisar) for adding this.
