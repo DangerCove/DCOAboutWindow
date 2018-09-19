@@ -20,6 +20,14 @@ Add the following line to your Podfile:
 
 Then run `pod install` and you're set.
 
+## Via [Carthage](https://github.com/Carthage/Carthage)
+
+Add the following to your Cartfile:
+
+    github "DangerCove/DCOAboutWindow"
+
+Then run `carthage update` and you're set.
+
 ## Manually
 
 Clone this repo and add files from `DCOAboutWindow` to your project.
@@ -167,6 +175,11 @@ Related apps, tools and scripts that extend DCOAboutWindow's functionality.
 * [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from CocoaPods and custom markdown files.
 
 # Changelog
+
+## v0.3.0
+
+* Support for Carthage added by [@hankinsoft](https://github.com/hankinsoft).
+* Support for Dark Mode added by [@balthisar](https://github.com/balthisar).
 
 ## v0.2.0
 
