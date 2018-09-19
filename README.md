@@ -91,6 +91,40 @@ You can change values by setting properties on `DCOAboutWindowController`:
      */
     @property (assign) BOOL useTextViewForAcknowledgments;
 
+## Pre-processing (for Dark Mode)
+
+You can pre-process the `NSAttributedString` containing the app credits using a delegate. This is great for making the about window play nice with Mojave's Dark Mode. Here's how it works:
+
+    // Conform to the DCOStringPreprocessingProtocol
+    @interface DCDAppDelegate() <DCOStringPreprocessingProtocol>
+    
+    self.aboutWindowController = [[DCOAboutWindowController alloc] init];
+    // Set the delegate
+    self.aboutWindowController.delegate = self;
+
+    #pragma mark - DCOStringPreprocessingProtocol
+    
+    - (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)preproccessAppCredits {
+        NSMutableAttributedString *mutableCredits = [preproccessAppCredits mutableCopy];
+        
+        NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
+        [mutableCredits setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+        
+        return [mutableCredits copy];
+    }
+
+    // Optionally pre-process the acknowledgments as well
+    - (NSAttributedString *)preproccessAppAcknowledgments:(NSAttributedString *)appAcknowledgments {
+        NSMutableAttributedString *mutableCredits = [appAcknowledgments mutableCopy];
+        
+        NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
+        [mutableCredits setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+        
+        return [mutableCredits copy];
+    }
+
+Thanks to [@balthisar](https://github.com/balthisar) for adding this.
+
 # Localization
 
 Add the following lines to your Localizable.string to change these values, or localize them.
