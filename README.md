@@ -4,7 +4,8 @@ DCOAboutWindow is a replacement for the standard About dialog.
 
 It adds the option to open acknowledgments and visit the website by clicking a button.
 
-![DCOAboutWindow in action](https://raw.github.com/DangerCove/DCOAboutWindow/master/screenshots/DCOAboutWindow.jpg)
+![DCOAboutWindow in action](https://raw.github.com/DangerCove/DCOAboutWindow/master/screenshots/DCOAboutWindow.png)
+![DCOAboutWindow in Dark Mode](https://raw.github.com/DangerCove/DCOAboutWindow/master/screenshots/DCOAboutWindow-DarkMode.png)
 
 ## Showing acknowledgments
 
