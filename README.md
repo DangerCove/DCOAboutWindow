@@ -118,7 +118,7 @@ You can pre-process the `NSAttributedString` containing the app credits using a 
         NSMutableAttributedString *mutableCredits = [appCredits mutableCopy];
         
         NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
-        [mutableCredits setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+        [mutableCredits addAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
         
         return [mutableCredits copy];
     }
@@ -128,7 +128,7 @@ You can pre-process the `NSAttributedString` containing the app credits using a 
         NSMutableAttributedString *mutableAcknowledgments = [appAcknowledgments mutableCopy];
         
         NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
-        [mutableAcknowledgments setAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+        [mutableAcknowledgments addAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
         
         return [mutableAcknowledgments copy];
     }
