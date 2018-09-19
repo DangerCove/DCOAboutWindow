@@ -42,96 +42,106 @@ I've made a [sample project](https://github.com/DangerCove/DCOAboutWindowExample
 
 Import `DCOAboutWindowController`:
 
-    #import <DCOAboutWindow/DCOAboutWindowController.h>
+```objc
+#import <DCOAboutWindow/DCOAboutWindowController.h>
+```
 
 Instantiate `DCOAboutWindow`:
 
-    // Note: make sure self.aboutWindowController is retained
-    self.aboutWindowController = [[DCOAboutWindowController alloc] init];
+```objc
+// Note: make sure self.aboutWindowController is retained
+self.aboutWindowController = [[DCOAboutWindowController alloc] init];
+```
 
 Create an IBAction to display the window:
 
-    - (IBAction)showAboutWindow:(id)sender {
-      [self.aboutWindowController showWindow:nil];
-    }
+```objc
+- (IBAction)showAboutWindow:(id)sender {
+  [self.aboutWindowController showWindow:nil];
+}
+```
 
 Hook it up to the 'About [app name]' menu item or a button.
 
 You can change values by setting properties on `DCOAboutWindowController`:
 
-    /**
-     *  The application name.
-     *  Default: CFBundleName
-     */
-    @property (copy) NSString *appName;
+```objc
+/**
+ *  The application name.
+ *  Default: CFBundleName
+ */
+@property (copy) NSString *appName;
 
-    /**
-     *  The application version.
-     *  Default: "Version %@ (Build %@)", CFBundleVersion, CFBundleShortVersionString
-     */
-    @property (copy) NSString *appVersion;
+/**
+ *  The application version.
+ *  Default: "Version %@ (Build %@)", CFBundleVersion, CFBundleShortVersionString
+ */
+@property (copy) NSString *appVersion;
 
-    /**
-     *  The copyright line.
-     *  Default: NSHumanReadableCopyright
-     */
-    @property (copy) NSString *appCopyright;
+/**
+ *  The copyright line.
+ *  Default: NSHumanReadableCopyright
+ */
+@property (copy) NSString *appCopyright;
 
-    /**
-     *  The credits.
-     *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
-     */
-    @property (copy) NSAttributedString *appCredits;
+/**
+ *  The credits.
+ *  Default: [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+ */
+@property (copy) NSAttributedString *appCredits;
 
-    /**
-     *  The URL pointing to the app's website.
-     *  Default: none
-     */
-    @property (strong) NSURL *appWebsiteURL;
+/**
+ *  The URL pointing to the app's website.
+ *  Default: none
+ */
+@property (strong) NSURL *appWebsiteURL;
 
-    /**
-     *  The path to the file that contains the acknowledgments.
-     *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"rtf"];
-     */
-    @property (nonatomic, copy) NSString *acknowledgmentsPath;
+/**
+ *  The path to the file that contains the acknowledgments.
+ *  Default: [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"rtf"];
+ */
+@property (nonatomic, copy) NSString *acknowledgmentsPath;
 
-    /**
-     *  If set to YES acknowledgments are shown in a text view, inside the window. Otherwise an external editor is launched.
-     *  Default: NO;
-     */
-    @property (assign) BOOL useTextViewForAcknowledgments;
+/**
+ *  If set to YES acknowledgments are shown in a text view, inside the window. Otherwise an external editor is launched.
+ *  Default: NO;
+ */
+@property (assign) BOOL useTextViewForAcknowledgments;
+```
 
 ## Pre-processing (for Dark Mode)
 
 You can pre-process the `NSAttributedString` containing the app credits using a delegate. This is great for making the about window play nice with Mojave's Dark Mode. Here's how it works:
 
-    // Conform to the DCOStringPreprocessingProtocol
-    @interface DCDAppDelegate() <DCOStringPreprocessingProtocol>
-    
-    self.aboutWindowController = [[DCOAboutWindowController alloc] init];
-    // Set the delegate
-    self.aboutWindowController.delegate = self;
+```objc
+// Conform to the DCOStringPreprocessingProtocol
+@interface DCDAppDelegate() <DCOStringPreprocessingProtocol>
 
-    #pragma mark - DCOStringPreprocessingProtocol
-    
-    - (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)appCredits {
-        NSMutableAttributedString *mutableCredits = [appCredits mutableCopy];
-        
-        NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
-        [mutableCredits addAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
-        
-        return [mutableCredits copy];
-    }
+self.aboutWindowController = [[DCOAboutWindowController alloc] init];
+// Set the delegate
+self.aboutWindowController.delegate = self;
 
-    // Optionally pre-process the acknowledgments as well
-    - (NSAttributedString *)preproccessAppAcknowledgments:(NSAttributedString *)appAcknowledgments {
-        NSMutableAttributedString *mutableAcknowledgments = [appAcknowledgments mutableCopy];
-        
-        NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
-        [mutableAcknowledgments addAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
-        
-        return [mutableAcknowledgments copy];
-    }
+#pragma mark - DCOStringPreprocessingProtocol
+
+- (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)appCredits {
+    NSMutableAttributedString *mutableCredits = [appCredits mutableCopy];
+    
+    NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
+    [mutableCredits addAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+    
+    return [mutableCredits copy];
+}
+
+// Optionally pre-process the acknowledgments as well
+- (NSAttributedString *)preproccessAppAcknowledgments:(NSAttributedString *)appAcknowledgments {
+    NSMutableAttributedString *mutableAcknowledgments = [appAcknowledgments mutableCopy];
+    
+    NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
+    [mutableAcknowledgments addAttributes:attributes range:NSMakeRange(0, mutableCredits.length)];
+    
+    return [mutableAcknowledgments copy];
+}
+```
 
 Thanks to [@balthisar](https://github.com/balthisar) for adding this.
 
@@ -139,17 +149,19 @@ Thanks to [@balthisar](https://github.com/balthisar) for adding this.
 
 Add the following lines to your Localizable.string to change these values, or localize them.
 
-    /* Version %@ (Build %@), displayed in the about window */
-    "Version %@ (Build %@)" = "v%@ (%@)";
+```
+/* Version %@ (Build %@), displayed in the about window */
+"Version %@ (Build %@)" = "v%@ (%@)";
 
-    /* Caption on the 'Visit the %@ Website' button in the about window */
-    "Visit the %@ Website" = "Visit %@'s Website";
+/* Caption on the 'Visit the %@ Website' button in the about window */
+"Visit the %@ Website" = "Visit %@'s Website";
 
-    /* Caption of the 'Acknowledgments' button in the about window */
-    "Acknowledgments" = "Acknowledgments";
+/* Caption of the 'Acknowledgments' button in the about window */
+"Acknowledgments" = "Acknowledgments";
 
-    /* Caption of the 'Credits' button in the about window when acknowledgments are shown when useTextViewForAcknowledgments is YES. */
-    "Credits" = "Credits";
+/* Caption of the 'Credits' button in the about window when acknowledgments are shown when useTextViewForAcknowledgments is YES. */
+"Credits" = "Credits";
+```
 
 # Contributions and things to add
 
