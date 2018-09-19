@@ -177,6 +177,10 @@ Related apps, tools and scripts that extend DCOAboutWindow's functionality.
 
 # Changelog
 
+## v0.3.1
+
+* Make version string selectable.
+
 ## v0.3.0
 
 * Support for Carthage added by [@hankinsoft](https://github.com/hankinsoft).
