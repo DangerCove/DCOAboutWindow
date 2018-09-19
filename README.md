@@ -26,6 +26,7 @@ Then run `pod install` and you're set.
 Add the following to your Cartfile:
 
     github "DangerCove/DCOAboutWindow"
+    github "DangerCove/DCOTransparentScroller"
 
 Then run `carthage update` and you're set.
 
