@@ -11,6 +11,8 @@
 		8BFBD6912110DD9100D3D6BF /* DCOAboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BFBD68E2110DD9100D3D6BF /* DCOAboutWindow.xib */; };
 		8BFBD6922110DD9100D3D6BF /* DCOAboutWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BFBD68F2110DD9100D3D6BF /* DCOAboutWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8BFBD6932110DD9100D3D6BF /* DCOAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBD6902110DD9100D3D6BF /* DCOAboutWindowController.m */; };
+		B55DBE91215268B5007707BC /* DCOBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = B55DBE8F215268B4007707BC /* DCOBackgroundView.h */; };
+		B55DBE92215268B5007707BC /* DCOBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B55DBE90215268B4007707BC /* DCOBackgroundView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		8BFBD68E2110DD9100D3D6BF /* DCOAboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DCOAboutWindow.xib; sourceTree = "<group>"; };
 		8BFBD68F2110DD9100D3D6BF /* DCOAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCOAboutWindowController.h; sourceTree = "<group>"; };
 		8BFBD6902110DD9100D3D6BF /* DCOAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCOAboutWindowController.m; sourceTree = "<group>"; };
+		B55DBE8F215268B4007707BC /* DCOBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCOBackgroundView.h; sourceTree = "<group>"; };
+		B55DBE90215268B4007707BC /* DCOBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCOBackgroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				8BFBD68F2110DD9100D3D6BF /* DCOAboutWindowController.h */,
 				8BFBD6902110DD9100D3D6BF /* DCOAboutWindowController.m */,
 				8BC1CA5B2110DD4800A52A39 /* DCOAboutWindow.h */,
+				B55DBE8F215268B4007707BC /* DCOBackgroundView.h */,
+				B55DBE90215268B4007707BC /* DCOBackgroundView.m */,
 				8BC1CA5C2110DD4800A52A39 /* Info.plist */,
 			);
 			path = DCOAboutWindow;
@@ -70,6 +76,7 @@
 			files = (
 				8BC1CA5D2110DD4800A52A39 /* DCOAboutWindow.h in Headers */,
 				8BFBD6922110DD9100D3D6BF /* DCOAboutWindowController.h in Headers */,
+				B55DBE91215268B5007707BC /* DCOBackgroundView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BFBD6932110DD9100D3D6BF /* DCOAboutWindowController.m in Sources */,
+				B55DBE92215268B5007707BC /* DCOBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
