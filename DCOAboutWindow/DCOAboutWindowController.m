@@ -93,14 +93,16 @@
     // Set credits
     if(!self.appCredits) {
         NSString *creditsPath = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
-        self.appCredits = [[NSAttributedString alloc] initWithPath:creditsPath documentAttributes:nil];
+        NSURL *fileURL = [NSURL fileURLWithPath:creditsPath];
+        NSDictionary *const options = @{NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType};
+        self.appCredits = [[NSAttributedString alloc] initWithURL:fileURL options:options documentAttributes:nil error:nil];
     }
     
     // Pre-process credits
     if (self.appCredits) {
         id delegate = self.delegate;
-        if (delegate && [delegate respondsToSelector:@selector(preproccessAppCredits:)]) {
-            self.appCredits = [delegate preproccessAppCredits:self.appCredits];
+        if (delegate && [delegate respondsToSelector:@selector(preprocessAppCredits:)]) {
+            self.appCredits = [delegate preprocessAppCredits:self.appCredits];
         }
     }
     
@@ -124,12 +126,13 @@
     if(acknowledgmentsPath) {
         
         // Set acknowledgments
-        self.acknowledgmentsString = [[NSAttributedString alloc] initWithPath:acknowledgmentsPath
-                                                           documentAttributes:nil];
+        NSURL *fileURL = [NSURL fileURLWithPath:acknowledgmentsPath];
+        NSDictionary *const options = @{NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType};
+        self.acknowledgmentsString = [[NSAttributedString alloc] initWithURL:fileURL options:options documentAttributes:nil error:nil];
         
         id delegate = self.delegate;
-        if (delegate && [delegate respondsToSelector:@selector(preproccessAppAcknowledgments:)]) {
-            self.acknowledgmentsString = [delegate preproccessAppAcknowledgments:self.acknowledgmentsString];
+        if (delegate && [delegate respondsToSelector:@selector(preprocessAppAcknowledgments:)]) {
+            self.acknowledgmentsString = [delegate preprocessAppAcknowledgments:self.acknowledgmentsString];
         }
     } else {
         

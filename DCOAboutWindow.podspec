@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "DCOAboutWindow"
-  s.version         = "0.3.1"
+  s.version         = "0.4.0"
   s.summary         = "Introduces a prettier About Window."
   s.description     = <<-DESC
                        A replacement for the standard About dialog. Adds the option to open

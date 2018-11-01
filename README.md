@@ -123,7 +123,7 @@ self.aboutWindowController.delegate = self;
 
 #pragma mark - DCOStringPreprocessingProtocol
 
-- (NSAttributedString *)preproccessAppCredits:(NSAttributedString *)appCredits {
+- (NSAttributedString *)preprocessAppCredits:(NSAttributedString *)appCredits {
     NSMutableAttributedString *mutableCredits = [appCredits mutableCopy];
     
     NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
@@ -133,7 +133,7 @@ self.aboutWindowController.delegate = self;
 }
 
 // Optionally pre-process the acknowledgments as well
-- (NSAttributedString *)preproccessAppAcknowledgments:(NSAttributedString *)appAcknowledgments {
+- (NSAttributedString *)preprocessAppAcknowledgments:(NSAttributedString *)appAcknowledgments {
     NSMutableAttributedString *mutableAcknowledgments = [appAcknowledgments mutableCopy];
     
     NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor textColor] };
@@ -189,6 +189,11 @@ Related apps, tools and scripts that extend DCOAboutWindow's functionality.
 * [Acknowledge](https://github.com/DangerCove/Acknowledge) - Generates a single `Acknowledgments.rtf` from CocoaPods and custom markdown files.
 
 # Changelog
+
+## v0.4.0
+
+* Fix typo in preprocessor delegate method name.
+* Implement alternative for deprecation.
 
 ## v0.3.1
 
